@@ -1,1 +1,14 @@
-// 글로벌 스타일 페이지입니다.
+import { css } from "@emotion/react";
+
+export const globalStyles = css`
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "NanumSquare";
+  }
+
+  @font-face {
+    font-family: "NanumSquare";
+    src: url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+  }
+`;
