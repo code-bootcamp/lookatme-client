@@ -6,8 +6,6 @@ import MainPageBanner from "./mainPage/Banner/container";
 import MainPageHeader from "./mainPage/Header/container";
 import UserInfoPageHeader from "./userInfoPage/Header/container";
 import UserInfoPageNavigation from "./userInfoPage/Navigation/container";
-import WritePageMyPageHeader from "./writePageMyPage/Header/container";
-import WritePageMyPageNavigation from "./writePageMyPage/Navigation/container";
 
 interface ILayoutProps {
   children: ReactNode;
@@ -15,8 +13,14 @@ interface ILayoutProps {
 
 const MAIN_PAGE = ["/codyList"];
 const CATEGORY_PAGE = ["/codyList/category"];
-const USER_INFO = ["/signUp", "/login", "/idFind", "passwordFind"];
-const CODIES = ["/codies", "/myPage"];
+const USER_INFO = [
+  "/signUp",
+  "/login",
+  "/idFind",
+  "/passwordFind",
+  "/codies",
+  "/myPage",
+];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -26,8 +30,6 @@ export default function Layout(props: ILayoutProps) {
   const categoryPage = CATEGORY_PAGE.includes(router.asPath);
 
   const userInfoPage = USER_INFO.includes(router.asPath);
-
-  const writePageMyPage = CODIES.includes(router.asPath);
 
   return (
     <>
@@ -49,13 +51,6 @@ export default function Layout(props: ILayoutProps) {
         <>
           <UserInfoPageHeader></UserInfoPageHeader>
           <UserInfoPageNavigation></UserInfoPageNavigation>
-        </>
-      )}
-
-      {writePageMyPage && (
-        <>
-          <WritePageMyPageHeader></WritePageMyPageHeader>
-          <WritePageMyPageNavigation></WritePageMyPageNavigation>
         </>
       )}
 

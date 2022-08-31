@@ -1,3 +1,9 @@
+import * as S from "./styles";
+
 export default function UserInfoPageHeaderPresenter() {
-  return <></>;
+  return (
+    <S.Wrapper>
+      <S.Logo src="Logo.jpg"></S.Logo>
+    </S.Wrapper>
+  );
 }
