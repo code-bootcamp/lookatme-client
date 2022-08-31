@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import * as S from "./styles";
 
-const SIGN_UP = ["/signUp/"];
+const SIGN_UP = ["/signup/"];
 const LOGIN = ["/login/"];
 const ID_FIND = ["/idFind/"];
 const PASSWORD_FIND = ["/passwordFind/"];
