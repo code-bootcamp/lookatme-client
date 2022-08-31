@@ -10,7 +10,7 @@ export default function CategoryPageHeaderPresenter() {
           <S.LogInButton>로그인</S.LogInButton>
           <S.SignUpButton>회원가입</S.SignUpButton>
           <S.HamburgerButton>
-            <img src="Menu.jpg"></img>
+            <img src="/Menu.jpg"></img>
           </S.HamburgerButton>
         </S.RightWrapper>
       </S.ButtonWrapper>

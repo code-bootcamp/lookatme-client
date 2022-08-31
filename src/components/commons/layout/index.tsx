@@ -11,15 +11,15 @@ interface ILayoutProps {
   children: ReactNode;
 }
 
-const MAIN_PAGE = ["/codyList"];
-const CATEGORY_PAGE = ["/codyList/category"];
+const MAIN_PAGE = ["/codyList/"];
+const CATEGORY_PAGE = ["/codyList/category/"];
 const USER_INFO = [
-  "/signUp",
-  "/login",
-  "/idFind",
-  "/passwordFind",
-  "/codies",
-  "/myPage",
+  "/signUp/",
+  "/login/",
+  "/idFind/",
+  "/passwordFind/",
+  "/codies/",
+  "/myPage/",
 ];
 
 export default function Layout(props: ILayoutProps) {
