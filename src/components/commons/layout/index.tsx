@@ -14,7 +14,7 @@ interface ILayoutProps {
 const MAIN_PAGE = ["/codyList/"];
 const CATEGORY_PAGE = ["/codyList/category/"];
 const USER_INFO = [
-  "/signUp/",
+  "/signup/",
   "/login/",
   "/idFind/",
   "/passwordFind/",
