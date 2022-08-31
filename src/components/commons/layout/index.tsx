@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
-import CategoryPageHeader from "./categoryPage/Header";
-import CategoryPageNavigation from "./categoryPage/Navigation";
-import MainPageBanner from "./mainPage/Banner";
-import MainPageHeader from "./mainPage/Header";
-import UserInfoPageHeader from "./userInfoPage/Header";
-import UserInfoPageNavigation from "./userInfoPage/Navigation";
-import WritePageMyPageHeader from "./writePageMyPage/Header";
-import WritePageMyPageNavigation from "./writePageMyPage/Navigation";
+import CategoryPageHeader from "./categoryPage/Header/container";
+import CategoryPageNavigation from "./categoryPage/Navigation/container";
+import MainPageBanner from "./mainPage/Banner/container";
+import MainPageHeader from "./mainPage/Header/container";
+import UserInfoPageHeader from "./userInfoPage/Header/container";
+import UserInfoPageNavigation from "./userInfoPage/Navigation/container";
+import WritePageMyPageHeader from "./writePageMyPage/Header/container";
+import WritePageMyPageNavigation from "./writePageMyPage/Navigation/container";
 
 interface ILayoutProps {
   children: ReactNode;
