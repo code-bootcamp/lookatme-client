@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import * as S from "./styles";
 
-const SIGN_UP = ["/signUp"];
-const LOGIN = ["/login"];
-const ID_FIND = ["/idFind"];
-const PASSWORD_FIND = ["/passwordFind"];
-const CODIES = ["/codies"];
-const MYPAGE = ["/myPage"];
+const SIGN_UP = ["/signUp/"];
+const LOGIN = ["/login/"];
+const ID_FIND = ["/idFind/"];
+const PASSWORD_FIND = ["/passwordFind/"];
+const CODIES = ["/codies/"];
+const MYPAGE = ["/myPage/"];
 
 export default function UserInfoPageNavigationPresenter() {
   const router = useRouter();

@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import * as S from "./styles";
 
-const BODY_SHAPE = ["/codyList/category/bodyShape"];
-const STYLE = ["/codyList/category/style"];
-const SEASON = ["/codyList/category/season"];
-const GENDER = ["/codyList/category/gender"];
-const BRAND = ["/codyList/category/brand"];
-const PRICE = ["/codyList/category/price"];
+const BODY_SHAPE = ["/codyList/category/bodyShape/"];
+const STYLE = ["/codyList/category/style/"];
+const SEASON = ["/codyList/category/season/"];
+const GENDER = ["/codyList/category/gender/"];
+const BRAND = ["/codyList/category/brand/"];
+const PRICE = ["/codyList/category/price/"];
 
 export default function CategoryPageNavigationPresenter() {
   const router = useRouter();
