@@ -6,12 +6,12 @@ export const Wrapper = styled.img`
   height: 800px;
 
   @media ${breakPoints.tablet} {
-    width: 1200px;
+    width: 75rem;
     height: 500px;
   }
 
   @media ${breakPoints.mobile} {
-    width: 800px;
+    width: 50rem;
     height: 300px;
   }
 `;
