@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+import { Modal } from "antd";
+import DaumPostcode from "react-daum-postcode";
+import "antd/dist/antd.css";
 
 export const Wrapper = styled.div`
   width: 335px;
@@ -100,6 +103,7 @@ export const Zipcode = styled.input`
   border-radius: 4px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border: none;
+  padding-left: 10px;
 `;
 
 export const SearchButton = styled.button`
@@ -110,13 +114,14 @@ export const SearchButton = styled.button`
   background-color: #000000;
   color: white;
   border: none;
+  cursor: pointer;
 `;
 
 export const HeightWrapper = styled.div`
   display: flex;
   width: 345px;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 5px;
   border: none;
 `;
 
@@ -128,22 +133,43 @@ export const HeightInput = styled.input`
   border-radius: 4px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border: none;
+  padding-left: 10px;
+  letter-spacing: 0.02cm;
 `;
 
 export const GenderWrapper = styled.div`
-  width: 168px;
+  width: 200px;
   height: 40px;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  padding-top: 20px;
 
-  & button {
-    width: 60px;
-    height: 40px;
-    background-color: #000000;
-    border-radius: 40px;
-    color: white;
-    border: none;
+  & input[type="radio"] {
+    display: none;
+  }
+
+  & input[type="radio"] + label {
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border: 1px solid #333;
+    border-radius: 15px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  & input[type="radio"] + label {
+    background-color: #fff;
+    color: #333;
+  }
+
+  & input[type="radio"]:checked + label {
+    background-color: #333;
+    color: #fff;
   }
 `;
 
@@ -159,5 +185,37 @@ export const Footer = styled.div`
     color: white;
     border: none;
     margin-bottom: 30px;
+    cursor: pointer;
   }
 `;
+
+export const Address = styled.input`
+  width: 345px;
+  height: 48px;
+  background: #f6f6f6;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  margin-bottom: 10px;
+`;
+
+export const AddressDetail = styled.input`
+  width: 345px;
+  height: 48px;
+  background: #f6f6f6;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+`;
+
+export const Error = styled.div`
+  padding-top: 10px;
+  font-size: 14px;
+  color: red;
+`;
+
+export const AddressModal = styled(Modal)``;
+
+export const AddressSearchInput = styled(DaumPostcode)``;
