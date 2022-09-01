@@ -33,6 +33,16 @@ const USER_INFO = [
   "/myPage/",
 ];
 
+const BODY_USER_INFO = ["/signup/", "/login/", "/idFind/", "/passwordFind/"];
+
+const BodyWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+`;
+
 const UserInfoBody = styled.div`
   margin: 4.875rem 49.5rem;
 
@@ -47,7 +57,6 @@ const UserInfoBody = styled.div`
 
 const MainBody = styled.div`
   margin: 4.875rem 22.5rem;
-  border: 1px solid red;
 
   @media ${breakPoints.tablet} {
     margin: 4.875rem 11.25rem;
@@ -66,6 +75,8 @@ export default function Layout(props: ILayoutProps) {
   const categoryPage = CATEGORY_PAGE.includes(router.asPath);
 
   const userInfoPage = USER_INFO.includes(router.asPath);
+
+  const bodyUserInfoPage = BODY_USER_INFO.includes(router.asPath);
 
   return (
     <>
@@ -90,11 +101,13 @@ export default function Layout(props: ILayoutProps) {
         </>
       )}
 
-      {userInfoPage ? (
-        <UserInfoBody>{props.children}</UserInfoBody>
-      ) : (
-        <MainBody>{props.children}</MainBody>
-      )}
+      <BodyWrapper>
+        {bodyUserInfoPage ? (
+          <UserInfoBody>{props.children}</UserInfoBody>
+        ) : (
+          <MainBody>{props.children}</MainBody>
+        )}
+      </BodyWrapper>
 
       <Footer></Footer>
     </>
