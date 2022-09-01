@@ -15,23 +15,18 @@ interface ILayoutProps {
 }
 
 const MAIN_PAGE = ["/codyList/"];
-const CATEGORY_PAGE = [
-  "/codyList/category/",
-  "/codyList/category/bodyShape/",
-  "/codyList/category/style/",
-  "/codyList/category/season/",
-  "/codyList/category/gender/",
-  "/codyList/category/brand/",
-  "/codyList/category/price/",
-];
+
+const CATEGORY_PAGE = "/codyList/category/";
+
 const USER_INFO = [
   "/signup/",
   "/login/",
   "/idFind/",
   "/passwordFind/",
-  "/codies/",
   "/myPage/",
 ];
+
+const WRITE_PAGE = "/codies/";
 
 const BODY_USER_INFO = ["/signup/", "/login/", "/idFind/", "/passwordFind/"];
 
@@ -72,11 +67,15 @@ export default function Layout(props: ILayoutProps) {
 
   const mainPage = MAIN_PAGE.includes(router.asPath);
 
-  const categoryPage = CATEGORY_PAGE.includes(router.asPath);
+  const categoryPage = router.asPath.includes(CATEGORY_PAGE);
 
   const userInfoPage = USER_INFO.includes(router.asPath);
 
+  const writePage = router.asPath.includes(WRITE_PAGE);
+
   const bodyUserInfoPage = BODY_USER_INFO.includes(router.asPath);
+
+  console.log(CATEGORY_PAGE.includes(router.asPath));
 
   return (
     <>
@@ -95,6 +94,13 @@ export default function Layout(props: ILayoutProps) {
       )}
 
       {userInfoPage && (
+        <>
+          <UserInfoPageHeader></UserInfoPageHeader>
+          <UserInfoPageNavigation></UserInfoPageNavigation>
+        </>
+      )}
+
+      {writePage && (
         <>
           <UserInfoPageHeader></UserInfoPageHeader>
           <UserInfoPageNavigation></UserInfoPageNavigation>
