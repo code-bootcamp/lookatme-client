@@ -7,11 +7,15 @@ import {
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
 import { ReactNode, useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 
 import { onError } from "@apollo/client/link/error";
-import { accessTokenState, userInfoState } from "../../../commons/store";
+import {
+  accessTokenState,
+  restoreAccessTokenLoadable,
+  userInfoState,
+} from "../../../commons/store";
 
 const APOLLO_CACHE = new InMemoryCache();
 
@@ -22,11 +26,12 @@ interface IApolloSettingProps {
 export default function ApolloSetting(props: IApolloSettingProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  const lodable = useRecoilValueLoadable(restoreAccessTokenLoadable);
 
   useEffect(() => {
-    getAccessToken().then((newAccessToken) => {
-      setAccessToken(newAccessToken);
-    });
+    lodable
+      .toPromise()
+      .then((newAccessToken) => setAccessToken(newAccessToken));
   }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {

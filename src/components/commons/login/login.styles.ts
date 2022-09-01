@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   height: 448px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   padding-top: 50px;
 `;
 
@@ -21,6 +20,7 @@ export const Main = styled.div`
     color: white;
     border: none;
     margin: 0 0 32px 5px;
+    cursor: pointer;
   }
 `;
 
@@ -77,6 +77,7 @@ export const InnerFooter = styled.div`
     background: none;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
   }
 `;
 
