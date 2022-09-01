@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
+import { breakPoints } from "../../../commons/styles/media";
 import CategoryPageHeader from "./categoryPage/Header/container";
 import CategoryPageNavigation from "./categoryPage/Navigation/container";
+import Footer from "./footer/container";
 import MainPageBanner from "./mainPage/Banner/container";
 import MainPageHeader from "./mainPage/Header/container";
 import UserInfoPageHeader from "./userInfoPage/Header/container";
@@ -32,15 +34,28 @@ const USER_INFO = [
 ];
 
 const UserInfoBody = styled.div`
-  width: 100%;
-  height: 100%;
-  margin: 78px 792px;
+  margin: 4.875rem 49.5rem;
+
+  @media ${breakPoints.tablet} {
+    margin: 4.875rem 24.75rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    margin: 4.875rem 0rem;
+  }
 `;
 
 const MainBody = styled.div`
-  width: 100%;
-  height: 100%;
-  margin: 78px 360px;
+  margin: 4.875rem 22.5rem;
+  border: 1px solid red;
+
+  @media ${breakPoints.tablet} {
+    margin: 4.875rem 11.25rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    margin: 4.875rem 0rem;
+  }
 `;
 
 export default function Layout(props: ILayoutProps) {
@@ -80,6 +95,8 @@ export default function Layout(props: ILayoutProps) {
       ) : (
         <MainBody>{props.children}</MainBody>
       )}
+
+      <Footer></Footer>
     </>
   );
 }
