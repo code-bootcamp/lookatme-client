@@ -13,19 +13,9 @@ export const Wrapper = styled.div`
 `;
 
 export const PageTitle = styled.div`
-  width: 200.74px;
-  font-size: 30px;
+  width: 12.54625rem;
+  font-size: 1.875rem;
   text-align: center;
   color: #ffffff;
   cursor: pointer;
-
-  @media ${breakPoints.tablet} {
-    width: 180px;
-    font-size: 25px;
-  }
-
-  @media ${breakPoints.mobile} {
-    width: 150px;
-    font-size: 20px;
-  }
 `;

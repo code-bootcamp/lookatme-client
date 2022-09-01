@@ -17,17 +17,11 @@ export const ButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 1200px;
+  width: 80vw;
   height: 100px;
 
-  @media ${breakPoints.tablet} {
-    width: 800px;
-    height: 100px;
-  }
-
   @media ${breakPoints.mobile} {
-    width: 600px;
-    height: 100px;
+    width: 95vw;
   }
 `;
 
@@ -53,45 +47,41 @@ export const RightWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 600px;
+  width: 37.5rem;
   height: 60px;
 
   @media ${breakPoints.tablet} {
-    width: 400px;
-    height: 60px;
+    width: 25rem;
   }
 
   @media ${breakPoints.mobile} {
-    width: 300px;
-    height: 60px;
+    width: 12.5rem;
   }
 `;
 
 export const SearchInput = styled.input`
-  width: 400px;
+  width: 21.875rem;
   height: 40px;
 
   border: none;
   border-bottom: 1px solid black;
-  background-image: url(searchIcon.jpg);
+  background-image: url(/searchIcon.jpg);
   background-repeat: no-repeat;
   background-position: 10px center;
   padding-left: 50px;
   font-size: 15px;
 
   @media ${breakPoints.tablet} {
-    width: 200px;
-    height: 60px;
+    width: 12.5rem;
   }
 
   @media ${breakPoints.mobile} {
-    width: 150px;
-    height: 60px;
+    display: none;
   }
 `;
 
 export const LogInButton = styled.button`
-  width: 50px;
+  width: 3.125rem;
   height: 17px;
   border: none;
   background-color: transparent;
@@ -99,7 +89,7 @@ export const LogInButton = styled.button`
 `;
 
 export const SignUpButton = styled.button`
-  width: 80px;
+  width: 5rem;
   height: 40px;
   background-color: black;
   color: white;
@@ -109,7 +99,7 @@ export const SignUpButton = styled.button`
 `;
 
 export const HamburgerButton = styled.button`
-  width: 16px;
+  width: 1rem;
   height: 14px;
   background: transparent;
   border: none;
