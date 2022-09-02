@@ -14,7 +14,7 @@ interface ILayoutProps {
   children: ReactNode;
 }
 
-const MAIN_PAGE = ["/codyList/"];
+const MAIN_PAGE = "/codyList/";
 
 const CATEGORY_PAGE = "/codyList/category/";
 
@@ -51,21 +51,25 @@ const UserInfoBody = styled.div`
 `;
 
 const MainBody = styled.div`
-  margin: 4.875rem 22.5rem;
+  margin: 4.875rem 10rem;
+  border: 1px solid red;
+  width: 1600px;
 
   @media ${breakPoints.tablet} {
-    margin: 4.875rem 11.25rem;
+    margin: 4.875rem 5rem;
+    border: 1px solid red;
   }
 
   @media ${breakPoints.mobile} {
     margin: 4.875rem 0rem;
+    border: 1px solid red;
   }
 `;
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
 
-  const mainPage = MAIN_PAGE.includes(router.asPath);
+  const mainPage = router.asPath.includes(MAIN_PAGE);
 
   const categoryPage = router.asPath.includes(CATEGORY_PAGE);
 
@@ -74,8 +78,6 @@ export default function Layout(props: ILayoutProps) {
   const writePage = router.asPath.includes(WRITE_PAGE);
 
   const bodyUserInfoPage = BODY_USER_INFO.includes(router.asPath);
-
-  console.log(CATEGORY_PAGE.includes(router.asPath));
 
   return (
     <>
