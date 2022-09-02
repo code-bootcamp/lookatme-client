@@ -1,3 +1,5 @@
+import List from "../../src/components/units/CodyList/list/list.container";
+
 export default function CodyListPage() {
-  return <div>리스트 페이지 입니다.</div>;
+  return <List />;
 }
