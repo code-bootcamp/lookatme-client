@@ -19,6 +19,11 @@ export const userInfoState = atom({
   },
 });
 
+export const isLoadedState = atom({
+  key: "isLoadedState",
+  default: false,
+});
+
 export const restoreAccessTokenLoadable = selector({
   key: "restoreAccessTokenLoadable",
   get: async () => {
