@@ -81,7 +81,7 @@ export const SearchInput = styled.input`
 `;
 
 export const LogInButton = styled.button`
-  width: 3.125rem;
+  width: 3.5rem;
   height: 17px;
   border: none;
   background-color: transparent;

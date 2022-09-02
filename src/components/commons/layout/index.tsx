@@ -18,6 +18,8 @@ const MAIN_PAGE = "/codyList/";
 
 const CATEGORY_PAGE = "/codyList/category/";
 
+const LANDING_PAGE = "/";
+
 const USER_INFO = [
   "/signup/",
   "/login/",
@@ -66,54 +68,70 @@ const MainBody = styled.div`
   }
 `;
 
+const LandingBody = styled.div`
+  margin: 0;
+  width: 100vw;
+`;
+
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
 
-  const mainPage = router.asPath.includes(MAIN_PAGE);
+  const mainPage = MAIN_PAGE.includes(router.asPath);
 
   const categoryPage = router.asPath.includes(CATEGORY_PAGE);
+
+  const landingPage = LANDING_PAGE.includes(router.asPath);
 
   const userInfoPage = USER_INFO.includes(router.asPath);
 
   const writePage = router.asPath.includes(WRITE_PAGE);
 
   const bodyUserInfoPage = BODY_USER_INFO.includes(router.asPath);
-
+  console.log(router);
   return (
     <>
-      {mainPage && (
+      {!landingPage && (
         <>
-          <MainPageHeader></MainPageHeader>
-          <MainPageBanner></MainPageBanner>
-        </>
-      )}
+          {mainPage && (
+            <>
+              <MainPageHeader></MainPageHeader>
+              <MainPageBanner></MainPageBanner>
+            </>
+          )}
 
-      {categoryPage && (
-        <>
-          <CategoryPageHeader></CategoryPageHeader>
-          <CategoryPageNavigation></CategoryPageNavigation>
-        </>
-      )}
+          {categoryPage && (
+            <>
+              <CategoryPageHeader></CategoryPageHeader>
+              <CategoryPageNavigation></CategoryPageNavigation>
+            </>
+          )}
 
-      {userInfoPage && (
-        <>
-          <UserInfoPageHeader></UserInfoPageHeader>
-          <UserInfoPageNavigation></UserInfoPageNavigation>
-        </>
-      )}
+          {userInfoPage && (
+            <>
+              <UserInfoPageHeader></UserInfoPageHeader>
+              <UserInfoPageNavigation></UserInfoPageNavigation>
+            </>
+          )}
 
-      {writePage && (
-        <>
-          <UserInfoPageHeader></UserInfoPageHeader>
-          <UserInfoPageNavigation></UserInfoPageNavigation>
+          {writePage && (
+            <>
+              <UserInfoPageHeader></UserInfoPageHeader>
+              <UserInfoPageNavigation></UserInfoPageNavigation>
+            </>
+          )}
         </>
       )}
 
       <BodyWrapper>
-        {bodyUserInfoPage ? (
-          <UserInfoBody>{props.children}</UserInfoBody>
-        ) : (
-          <MainBody>{props.children}</MainBody>
+        {landingPage && <LandingBody>{props.children}</LandingBody>}
+        {bodyUserInfoPage && <UserInfoBody>{props.children}</UserInfoBody>}
+
+        {!landingPage && (
+          <>
+            {mainPage && <MainBody>{props.children}</MainBody>}
+            {categoryPage && <MainBody>{props.children}</MainBody>}
+            {writePage && <MainBody>{props.children}</MainBody>}
+          </>
         )}
       </BodyWrapper>
 
