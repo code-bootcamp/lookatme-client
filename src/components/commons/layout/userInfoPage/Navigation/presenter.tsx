@@ -17,7 +17,6 @@ export default function UserInfoPageNavigationPresenter() {
   const loginPage = LOGIN.includes(router.asPath);
   const idFindPage = ID_FIND.includes(router.asPath);
   const passwordFindPage = PASSWORD_FIND.includes(router.asPath);
-  const codiesPage = router.asPath.includes(CODIES);
   const writePage = router.asPath.includes(WRITE);
   const editPage = router.asPath.includes(EDIT);
   const myPage = MYPAGE.includes(router.asPath);
@@ -29,7 +28,6 @@ export default function UserInfoPageNavigationPresenter() {
         {loginPage && "Login"}
         {idFindPage && "ID 찾기"}
         {passwordFindPage && "PW 찾기"}
-        {codiesPage && "코디 구경하기"}
         {writePage && "코디 업로드"}
         {editPage && "코디 수정"}
         {myPage && "My Page"}
