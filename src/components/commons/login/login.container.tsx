@@ -5,13 +5,15 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useApolloClient, useMutation } from "@apollo/client";
 import { useRecoilState } from "recoil";
-import { accessTokenState, userInfoState } from "../../../commons/store";
-import { FETCH_LOGIN_USER, LOGIN } from "./login.queries";
+import { accessTokenState } from "../../../commons/store";
+import { LOGIN } from "./login.queries";
 import {
   IMutation,
   IMutationLoginArgs,
 } from "../../../commons/types/generated/types";
 import { ChangeEvent } from "react";
+import { Modal } from "antd";
+import "antd/dist/antd.css";
 
 const schema = yup.object({
   email: yup
@@ -33,8 +35,6 @@ const schema = yup.object({
 export default function Login() {
   const router = useRouter();
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
-  const client = useApolloClient();
 
   const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
     LOGIN
@@ -59,32 +59,49 @@ export default function Login() {
 
   const onClickLogin = async (data: any) => {
     if (!data.email && !data.password) return;
+    try {
+      const result = await login({
+        variables: { email: data.email, password: data.password },
+      });
+      const accessToken = result.data?.login;
+      console.log(accessToken);
+      if (!accessToken) {
+        Modal.info({ title: "로그인 실패" });
+        return;
+      }
 
-    // 1. 로그인해서 토큰 받아오기
-    const result = await login({
-      variables: { email: data.email, password: data.password },
-    });
-    const accessToken = result.data?.login;
-    console.log(accessToken);
-    if (!accessToken) {
-      alert("로그인 실패");
-      return;
+      setAccessToken(accessToken);
+
+      Modal.info({ title: "로그인 성공" });
+      router.push("/codyList");
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
     }
-
-    const resultUserInfo = await client.query({
-      query: FETCH_LOGIN_USER,
-      context: {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      },
-    });
-
-    const userInfo = resultUserInfo.data?.fetchLoginUser;
-
-    setAccessToken(accessToken);
-    setUserInfo(userInfo);
-    alert("로그인에 성공하였습니다!!");
   };
-  return <LoginUI />;
+
+  const onClickMoveToSignup = () => {
+    router.push("/signup");
+  };
+
+  const onClickMoveToIdFind = () => {
+    router.push("/idFind");
+  };
+
+  const onClickMoveToPasswordFind = () => {
+    router.push("/passwordFind");
+  };
+
+  return (
+    <LoginUI
+      register={register}
+      handleSubmit={handleSubmit}
+      formState={formState}
+      onChangeEmail={onChangeEmail}
+      onChangePassword={onChangePassword}
+      onClickLogin={onClickLogin}
+      onClickMoveToSignup={onClickMoveToSignup}
+      onClickMoveToIdFind={onClickMoveToIdFind}
+      onClickMoveToPasswordFind={onClickMoveToPasswordFind}
+    />
+  );
 }
