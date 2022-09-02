@@ -30,8 +30,11 @@ export default function LoginUI(props: ILoginUIProps) {
         </S.Main>
         <S.Footer>
           <S.InnerFooter>
-            <button onClick={props.onClickMoveToIdFind}>아이디찾기</button>|
-            <button onClick={props.onClickMoveToPasswordFind}>
+            <button type="button" onClick={props.onClickMoveToIdFind}>
+              아이디찾기
+            </button>
+            |
+            <button type="button" onClick={props.onClickMoveToPasswordFind}>
               비밀번호찾기
             </button>
           </S.InnerFooter>
