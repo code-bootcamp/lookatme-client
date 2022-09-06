@@ -40,7 +40,7 @@ export default function CommunityListPresenter() {
                 style={{ width: "15px", height: "15px", color: "#F293A3" }}
               />
             </S.LikeButton>
-            <S.LikeInfo>0명 공감 댓글 0개</S.LikeInfo>
+            <S.LikeInfo>1명 공감 댓글 0개</S.LikeInfo>
           </S.ContentsInfo>
 
           <S.UserInfo>
