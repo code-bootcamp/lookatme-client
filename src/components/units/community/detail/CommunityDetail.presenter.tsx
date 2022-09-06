@@ -23,7 +23,7 @@ export default function CommunityDetailUi(){
                         </S.NicknameWrapper>
                         <S.TimeWrapper>
                             <AiOutlineClockCircle/>
-                            <S.Time>6분전</S.Time>
+                            <S.Time>7분전</S.Time>
                         </S.TimeWrapper>
                     </S.InfoWrapper>
                 </S.HeaderWrapper>
